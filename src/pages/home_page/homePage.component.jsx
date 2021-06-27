@@ -9,7 +9,12 @@ import './homePage.styles.css';
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 
-import Google from '../../assets/image/c_google.webp'
+import Google from '../../assets/image/c_google.webp';
+import Microsoft from '../../assets/image/c_micro.webp';
+import Adobe from '../../assets/image/c_adobe.webp';
+import invison from '../../assets/image/c_invision.webp';
+import ibm from '../../assets/image/c_ibm.webp';
+import Manpower from '../../assets/image/c_manpower.webp';
 
 export default class HomePage extends Component {
     render() {
@@ -62,21 +67,21 @@ export default class HomePage extends Component {
                                     <img alt="Google" width="78" height="26" src={Google}/>
                                 </Col>
                                 <Col md={2} sm={4} xs={6}>
-                                    <img alt="IBM" width="65" height="26" src="https://hunter.io/assets/customers_logos/ibm-5ad5627f50f3b689c1cf88a614d55e218c486d3c7868b5f2c1e4efa3f8ab3572.png"></img>
+                                    <img alt="IBM" width="65" height="26" src={ibm}></img>
                                 </Col>
 
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Manpower" width="133" height="26" src="https://hunter.io/assets/customers_logos/manpower-7a5babf637c4316c16345eb8f238459b461955201cc7c4af6864c33980ac5aa3.png"/>
+                                <img alt="Manpower" width="133" height="26" src={Manpower}/>
                                 </Col>
 
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Microsoft" width="122" height="26" src="https://hunter.io/assets/customers_logos/microsoft-1e9a14aedf08ef8d8c20e652967de231aa82086d621c7faac3dac48e7532d290.png"/>
+                                <img alt="Microsoft" width="122" height="26" src={Microsoft}/>
                                 </Col>
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Adobe" width="107" height="26" src="https://hunter.io/assets/customers_logos/adobe-89403f8f6c0fc411f44f985b35de6c0b268bc11a89b5cc29017d61307da93d1a.png"/>
+                                <img alt="Adobe" width="107" height="26" src={Adobe}/>
                                 </Col>
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Invision" width="77" height="26" src="https://hunter.io/assets/customers_logos/invision-43121076a2ce2e25f8a54ab6be9929ebb47db9f2920a89a8cc8f44540e46733a.png"/>
+                                <img alt="Invision" width="77" height="26" src={invison}/>
                                 </Col>
                             </Row>
                         </Container>
