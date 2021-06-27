@@ -50,8 +50,52 @@
     border-bottom: 2px solid #e6e6e6;
 }
 
-.homepage-description a.blue-cta {
+.homepage a.blue-cta {
     display: inline-block;
     font-size: 16px;
     margin-top: 20px;
+}
+
+.homepage a.blue-cta:after{
+    content: "›";
+    margin-left: 0.3em;
+    border-bottom: 0px !important;
+}
+
+.homepage a.blue-cta:hover{
+    border-bottom: 1px solid #5cb0f0;
+    color: #168eea;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.homepage section.data-privacy {
+    background: url(../../assets/image/dataprivacy.jpeg) no-repeat center 60px;
+    background-size: 700px;
+    padding: 100px 0 140px;
+    text-align: center;
+}
+
+.homepage section h2 {
+    color: #191919;
+    font-size: 27px;
+    font-weight: 500;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+.homepage section.data-privacy h2 {
+    font-size: 36px;
+}
+
+
+
+.homepage section p.big-p {
+    font-size: 22px;
+    line-height: 38px;
+}
+
+.homepage section.data-privacy p.big-p {
+    margin: 0 auto 30px;
+    max-width: 700px;
 }

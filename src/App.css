@@ -53,3 +53,7 @@ a.blue-cta {
     -ms-transition: all .25s ease;
     transition: all .25s ease;
 }
+
+p.big-p {
+    color: #555;
+}
