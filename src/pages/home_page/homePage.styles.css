@@ -1,0 +1,57 @@
+.homepage-header h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin: 90px 0 40px;
+}
+
+.homepage .search-form-container {
+  margin: 40px auto 60px;
+}
+
+.homepage section {
+    color: #404040;
+    font-size: 16px;
+    padding: 100px 0;
+}
+
+.homepage section.customers {
+    padding: 30px 0;
+    background: #fafbfb;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.homepage section .container {
+    padding: 0;
+}
+
+.homepage .customers-intro {
+    color: #737373;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 20px;
+    text-align: center;
+}
+
+.homepage section .container .row {
+    margin: 0;
+    padding: 0;
+}
+
+.homepage .customers img {
+    border-radius: 0;
+    display: block;
+    height: 26px;
+    margin: 20px auto;
+    opacity: .25;
+}
+
+.homepage section.homepage-description {
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.homepage-description a.blue-cta {
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+}
