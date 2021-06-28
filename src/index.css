@@ -86,9 +86,13 @@ body h1, body h2, body h3, body h4 {
 .search-form-container form .input-group input.form-control {
   background: #fff;
   border-right: 0!important;
-  border-color: #ff916f!important;
+  border-color: #ff916f;
   font-size: 16px;
   height: 52px;
+}
+
+.search-form-container form .input-group input.form-control.is-invalid {
+  border-color: #dc3545;
 }
 
 span.input-group-btn {

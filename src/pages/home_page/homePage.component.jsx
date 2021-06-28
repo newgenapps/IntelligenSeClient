@@ -11,6 +11,7 @@ import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert'
 
 import './homePage.styles.css';
 
@@ -31,7 +32,8 @@ export default class HomePage extends Component {
 
         this.state = {
             searchInput: undefined,
-            result: []
+            result: [],
+            searchInputEmpty: false
         }
     }
 
@@ -48,12 +50,22 @@ export default class HomePage extends Component {
         'anurag@newgenapps.com'
     ];
 
-    onSearchHandle = () => {
-        console.log(this.state.result)
-        this.setState({result: this.emailArray});
+    onSearchHandle = (event) => {
+        const {searchInput} = this.state;
+        if(searchInput && searchInput !== ''){
+            this.setState({result: this.emailArray});
+        }else{
+            this.setState({searchInputEmpty: true});
+        }
+        event.preventDefault();
+    }
+
+    onInputChange = (e) => {
+        this.setState({searchInputEmpty: false});
+        this.setState({ searchInput: e.target.value })
     }
     render() {
-        const { searchInput, result } = this.state;
+        const { searchInput, result, searchInputEmpty } = this.state;
         const showSearchResult = result.length > 0;
         return (
             <>
@@ -75,18 +87,24 @@ export default class HomePage extends Component {
                                 <div className="search-form-container domain">
                                     <form>
                                         <div className="input-group">
-                                            <input autoComplete="off" autoFocus="autofocus" className="form-control" placeholder="company.com" required="required" type="text" onChange={(e) => this.setState({ searchInput: e.target.value })} value={searchInput} />
+                                            <input autoComplete="off" autoFocus="autofocus" className={`form-control ${searchInputEmpty ? 'is-invalid': ''}`} placeholder="company.com" required="required" type="text" onChange={this.onInputChange} value={searchInput} />
                                             <span className="input-group-btn">
-                                                <Link className="btn-orange" onClick={this.onSearchHandle}>
+                                                <button className="btn-orange" onClick={this.onSearchHandle}>
                                                     <span className="d-none d-sm-block">Find email addresses</span>
                                                     <span className="d-block d-sm-none">Search</span>
-                                                </Link>
+                                                </button>
                                             </span>
                                         </div>
+                                        {
+                                            searchInputEmpty ? 
+                                                <Alert variant={'danger'}>
+                                                    Please enter a valid domain
+                                                </Alert> : ''
+                                        }
                                         <div className="search-results-container">
                                             {
                                                 showSearchResult ? (
-                                                    <DomainSearchResultNoLogin result={this.state.result} />
+                                                    <DomainSearchResultNoLogin result={result} />
                                                 ) : ''
                                             }
 
