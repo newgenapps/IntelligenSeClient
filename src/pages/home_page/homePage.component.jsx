@@ -1,3 +1,11 @@
+/**
+ * TO DO's
+ * - On search click button should show loader
+ * - Result should only come after loader stops
+ * - Decide on wether to pass result from here or from redux
+ * - Implement login and no login logic in result hiding
+ */
+
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
@@ -8,6 +16,7 @@ import './homePage.styles.css';
 
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
+import DomainSearchResultNoLogin from '../../components/DomainSearchResultNoLogin/domainSearchResultNoLogin.component';
 
 import Google from '../../assets/image/c_google.webp';
 import Microsoft from '../../assets/image/c_micro.webp';
@@ -17,7 +26,35 @@ import ibm from '../../assets/image/c_ibm.webp';
 import Manpower from '../../assets/image/c_manpower.webp';
 
 export default class HomePage extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            searchInput: undefined,
+            result: []
+        }
+    }
+
+    emailArray = [
+        'sundaram@newgenapps.com',
+        'random@newgenapps.com',
+        'someveryrandomemail@newgenapps.com',
+        'anupriya@newgenapps.com',
+        'neha@newgenapps.com',
+        'lata@newgenapps.com',
+        'vandana@newgenapps.com',
+        'nehat@newgenapps.com',
+        'tarun@newgenapps.com',
+        'anurag@newgenapps.com'
+    ];
+
+    onSearchHandle = () => {
+        console.log(this.state.result)
+        this.setState({result: this.emailArray});
+    }
     render() {
+        const { searchInput, result } = this.state;
+        const showSearchResult = result.length > 0;
         return (
             <>
                 <Header />
@@ -38,17 +75,28 @@ export default class HomePage extends Component {
                                 <div className="search-form-container domain">
                                     <form>
                                         <div className="input-group">
-                                            <input autocomplete="off" autofocus="autofocus" className="form-control" placeholder="company.com" required="required" type="text" value="" />
+                                            <input autoComplete="off" autoFocus="autofocus" className="form-control" placeholder="company.com" required="required" type="text" onChange={(e) => this.setState({ searchInput: e.target.value })} value={searchInput} />
                                             <span className="input-group-btn">
-                                                <button className="btn-orange">
+                                                <Link className="btn-orange" onClick={this.onSearchHandle}>
                                                     <span className="d-none d-sm-block">Find email addresses</span>
                                                     <span className="d-block d-sm-none">Search</span>
-                                                </button>
+                                                </Link>
                                             </span>
                                         </div>
-                                        <div className="search-results-container"></div>
+                                        <div className="search-results-container">
+                                            {
+                                                showSearchResult ? (
+                                                    <DomainSearchResultNoLogin result={this.state.result} />
+                                                ) : ''
+                                            }
+
+                                        </div>
                                         <div className="light-grey before-search-message">
-                                            <p>Enter a domain name to launch the search. For example, <Link to="#" className="try-domain">newgenapps.com</Link>.</p>
+                                            {
+                                                !showSearchResult ? (
+                                                    <p>Enter a domain name to launch the search. For example, <Link to="#" className="try-domain">newgenapps.com</Link>.</p>
+                                                ) : ''
+                                            }
                                         </div>
                                     </form>
                                 </div>
@@ -64,24 +112,24 @@ export default class HomePage extends Component {
                             </div>
                             <Row>
                                 <Col md={2} sm={4} xs={6}>
-                                    <img alt="Google" width="78" height="26" src={Google}/>
+                                    <img alt="Google" width="78" height="26" src={Google} />
                                 </Col>
                                 <Col md={2} sm={4} xs={6}>
                                     <img alt="IBM" width="65" height="26" src={ibm}></img>
                                 </Col>
 
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Manpower" width="133" height="26" src={Manpower}/>
+                                    <img alt="Manpower" width="133" height="26" src={Manpower} />
                                 </Col>
 
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Microsoft" width="122" height="26" src={Microsoft}/>
+                                    <img alt="Microsoft" width="122" height="26" src={Microsoft} />
                                 </Col>
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Adobe" width="107" height="26" src={Adobe}/>
+                                    <img alt="Adobe" width="107" height="26" src={Adobe} />
                                 </Col>
                                 <Col md={2} sm={4} xs={6}>
-                                <img alt="Invision" width="77" height="26" src={invison}/>
+                                    <img alt="Invision" width="77" height="26" src={invison} />
                                 </Col>
                             </Row>
                         </Container>
