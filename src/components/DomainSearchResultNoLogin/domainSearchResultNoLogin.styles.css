@@ -22,3 +22,8 @@ form .domain-search-cta {
 .email-container .email {
     cursor: default;
 }
+
+.search-results p.grey.search-see-all {
+    margin: 25px 0;
+}
+

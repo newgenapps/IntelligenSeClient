@@ -73,6 +73,7 @@ function DomainSearchResultNoLogin({result}) {
                         )
                     )
                 }
+                <p class="grey search-see-all">{`${result.length - 5}`} more results for "newgenapps.com"</p>
             </div>
             <div className="domain-search-cta" >
                 <p>
