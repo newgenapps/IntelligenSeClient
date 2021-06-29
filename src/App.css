@@ -57,3 +57,14 @@ a.blue-cta {
 p.big-p {
     color: #555;
 }
+
+.big-p {
+    font-size: 22px;
+    line-height: 38px;
+}
+a.blue-cta:hover {
+    border-bottom: 1px solid #5cb0f0;
+    color: #168eea;
+    cursor: pointer;
+    text-decoration: none;
+}

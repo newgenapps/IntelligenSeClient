@@ -1,4 +1,5 @@
 /**
+ * -------*-*-*-*- Homepage -*-*-*-*--------
  * TO DO's
  * - On search click button should show loader
  * - Result should only come after loader stops

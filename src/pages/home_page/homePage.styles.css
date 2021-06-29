@@ -15,7 +15,7 @@
     padding: 100px 0;
 }
 
-.homepage section.customers {
+.section.customers {
     padding: 30px 0;
     background: #fafbfb;
     border-bottom: 2px solid #e1e1e1;
@@ -25,7 +25,7 @@
     padding: 0;
 }
 
-.homepage .customers-intro {
+.customers-intro {
     color: #737373;
     font-size: 17px;
     font-weight: 500;
@@ -38,7 +38,7 @@
     padding: 0;
 }
 
-.homepage .customers img {
+.customers img {
     border-radius: 0;
     display: block;
     height: 26px;

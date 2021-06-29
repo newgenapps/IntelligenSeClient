@@ -28,7 +28,7 @@ const Header = ({isLoggedIn, user}) => (
                                 <Link className="menu-item dropper">Product <span className="arrow-down fas fa-angle-down"></span></Link>
                                 <DropDownCard>
                                     <div className="main-features">
-                                        <MainFeatureMenuItem icon={'icon-Magnifying-Glass-1'} link={''} heading={'Domain Search'}>
+                                        <MainFeatureMenuItem icon={'icon-Magnifying-Glass-1'} link={'/domain-search'} heading={'Domain Search'}>
                                             Find the email addresses of a company.
                                         </MainFeatureMenuItem>
                                         <MainFeatureMenuItem icon={'icon-Target-User'} link={''} heading={'Email Finder'}>

@@ -1,0 +1,87 @@
+.domainpage-nologin section.product-demo {
+    margin-top: -180px;
+    padding-bottom: 0;
+}
+
+.domainpage-nologin section {
+    color: #404040;
+    font-size: 16px;
+    padding: 100px 0;
+}
+
+.domainpage-nologin .container {padding: 0;}
+
+.domainpage-nologin .product-demo form {
+    font-size: 14px;
+}
+
+.product-demo form {
+    background-color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 0 6px 30px rgb(0 0 0 / 25%);
+    margin: 0 auto 100px;
+    max-width: 770px;
+    padding: 40px;
+}
+
+.domainpage-nologin .homepage-header h1 {
+    font-size: 42px;
+    font-weight: 500;
+    margin: 80px 0 100px;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.domainpage-nologin h1 span.icon.icon-Magnifying-Glass-1 {
+    margin-right: 10px;
+}
+
+.input-group.main-input-group {
+    overflow: hidden;
+}
+
+.domainpage-nologin .front-header-bg {
+    background-color: #fafbfb;
+    border-bottom: 2px solid #e6e6e6;
+    color: #191919;
+}
+
+.front-header-bg {}
+
+.domainpage-nologin .front-header-bg {
+    background-color: #fafbfb;
+    border-bottom: 2px solid #e6e6e6;
+    color: #191919;
+}
+
+.domainpage-nologin h2 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 50px;
+    margin: 0 0 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    color: #191919;
+}
+
+.featured-content a.btn-orange.btn-lg {
+    margin: 40px 0 60px;
+}
+
+.featured-content .text-content  h3 {
+    font-size: 19px;
+}
+
+
+.domainpage-nologin .featured-content a.blue-cta {
+    display: inline-block;
+    margin-bottom: 40px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.domainpage-nologin section.customers {
+    padding: 0 0 80px;
+}
