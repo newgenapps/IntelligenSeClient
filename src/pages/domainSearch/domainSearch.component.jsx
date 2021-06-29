@@ -82,7 +82,7 @@ export default class DomainSearch extends Component {
                                         <h1>
                                             <span className="icon icon-Magnifying-Glass-1"></span>
                                             {' '}Domain Search
-                                            <div className="subtitle">Hunter's most powerful email-finding tool. Find email addresses from any company name or website in seconds.</div>
+                                            <div className="subtitle">IntelligenSe's most powerful email-finding tool. Find email addresses from any company name or website in seconds.</div>
                                         </h1>
                                     </div>
                                 </Container>
@@ -155,7 +155,7 @@ export default class DomainSearch extends Component {
                                         <div className="text-content">
                                             <h3>Available in the API</h3>
                                             <p>
-                                                The main services of Hunter are also available directly through
+                                                The main services of IntelligenSe are also available directly through
                                                 our <Link to="/api">API</Link>. Find email addresses from
                                                 domain names with a simple API call.
                                             </p>
