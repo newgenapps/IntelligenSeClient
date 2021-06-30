@@ -1,0 +1,8 @@
+.dashboard-body {
+    margin-top: 20px;
+    min-width: 370px;
+}
+
+.dashboard-body.login {
+    margin-top: 0;
+}
