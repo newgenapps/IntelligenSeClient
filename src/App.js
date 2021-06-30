@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/home_page/homePage.component";
 import DomainSearch from "./pages/domainSearch/domainSearch.component";
 import VerifyEmail from "./pages/verifyEmail/verifyEmail.component";
+import EmailFinder from "./pages/emailFinder/emailFinder.component";
 
 import './App.css'
 
@@ -28,6 +29,13 @@ function App() {
           exact
           path="/email-verifier"
           render={(props) => <VerifyEmail {...props} />}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path="/email-finder"
+          render={(props) => <EmailFinder {...props} />}
         />
       </Switch>
     </BrowserRouter>

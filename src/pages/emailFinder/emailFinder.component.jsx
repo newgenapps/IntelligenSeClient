@@ -1,5 +1,5 @@
 /**
- * -------*-*-*-*- Verify Email No Login -*-*-*-*--------
+ * -------*-*-*-*- Email Finder No Login -*-*-*-*--------
  * TO DO's
  * - On search click button should show loader
  * - Result should only come after loader stops
@@ -14,7 +14,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
 
-import './verifyEmail.styles.css';
+import './emailFinder.styles.css';
 
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
@@ -28,7 +28,7 @@ import invison from '../../assets/image/c_invision.webp';
 import ibm from '../../assets/image/c_ibm.webp';
 import Manpower from '../../assets/image/c_manpower.webp';
 
-export default class VerifyEmail extends Component {
+export default class EmailFinder extends Component {
     constructor(props) {
         super(props)
 
@@ -52,6 +52,12 @@ export default class VerifyEmail extends Component {
             heading: 'IntelligenSe website',
             description: 'Type any company to find a list of email addresses.',
             icon: 'fal fa-browser',
+            link: 'users/sign_up?utm_medium=domain_search'
+        },
+        {
+            heading: 'Chrome extension',
+            description: 'Find the email addresses behind the websites you visit.',
+            icon: 'fab fa-chrome',
             link: 'users/sign_up?utm_medium=domain_search'
         },
         {
@@ -96,9 +102,9 @@ export default class VerifyEmail extends Component {
                             <Container>
                                 <div className="homepage-header">
                                     <h1>
-                                        <span className="icon icon-Circle-Check-2"></span>
-                                        {' '} Email Verifier
-                                        <div className="subtitle">Verify the validity of any professional email address with the most complete email checker.</div>
+                                        <span className="icon icon-Target-User"></span>
+                                        {' '} Email Finder
+                                        <div className="subtitle">Find the verified email address of any professional.</div>
                                     </h1>
                                 </div>
                             </Container>
@@ -144,28 +150,23 @@ export default class VerifyEmail extends Component {
                             <Row>
                                 <Col md={6}>
                                     <h2>
-                                        Never get bounces anymore.
+                                    Make new connections.
                                     </h2>
                                     <div className="big-p">
-                                        We designed the Email Verifier to be as complete as possible, with
-                                        validations made at multiple levels: format, domain information,
-                                        response of the mail servers and comparison with our unique base of
-                                        100+ million professional email addresses.
+                                    The Email Finder is all you need to connect with any professional. It puts all our data together—email formats, email addresses found on the web, verifications and other signals—to find the right contact information in seconds.
                                     </div>
-                                    <Link className="btn-orange btn-lg" to="/users/sign_up?utm_medium=domain_search">Get 50 free verifications/month</Link>
+                                    <Link className="btn-orange btn-lg" to="/users/sign_up?utm_medium=domain_search">Get 25 free searches/month</Link>
                                 </Col>
                                 <Col md={1}>
 
                                 </Col>
                                 <Col md={5}>
                                     <div className="text-content">
-                                        <h3>Verify email addresses in bulk</h3>
+                                        <h3>Find email addresses in bulk</h3>
                                         <p>
-                                            The Email Verifier can be performed for a list of email
-                                            addresses. Upload your file in the dashboard and watch it being
-                                            enriched with the email validations.
+                                        The Email Finder can be performed to find the email address of a list of people. Upload your file in the dashboard and watch it being enriched.
                                         </p>
-                                        <Link className="blue-cta" to="/bulks/domain-search">Bulk Email Verifier</Link>
+                                        <Link className="blue-cta" to="/bulks/domain-search">Bulk Email Finder</Link>
                                     </div>
                                     <div className="text-content">
                                         <h3>Available in the API</h3>
@@ -175,7 +176,7 @@ export default class VerifyEmail extends Component {
                                             our <Link to="/api">API</Link>. Get the complete check result
                                             of any email address with a simple API call.
                                         </p>
-                                        <Link className="blue-cta" to="/api/domain-search">Email Verifier API</Link>
+                                        <Link className="blue-cta" to="/api/domain-search">Email Finder API</Link>
                                     </div>
                                 </Col>
                             </Row>
