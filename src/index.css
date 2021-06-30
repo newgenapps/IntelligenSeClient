@@ -125,3 +125,101 @@ span.input-group-btn {
 .search-results-container{
   margin-top: 20px;
 }
+
+.nologin section.product-demo {
+  margin-top: -180px;
+  padding-bottom: 0;
+}
+
+.nologin section {
+  color: #404040;
+  font-size: 16px;
+  padding: 100px 0;
+}
+
+.nologin .container {padding: 0;}
+
+.nologin .product-demo form {
+  font-size: 14px;
+}
+
+.product-demo form {
+  background-color: #fff;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: 0 6px 30px rgb(0 0 0 / 25%);
+  margin: 0 auto 100px;
+  max-width: 770px;
+  padding: 40px;
+}
+
+.nologin .homepage-header h1 {
+  font-size: 42px;
+  font-weight: 500;
+  margin: 80px 0 100px;
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+.nologin h1 span.icon.icon-Magnifying-Glass-1 {
+  margin-right: 10px;
+}
+
+.input-group.main-input-group {
+  overflow: hidden;
+}
+
+.nologin .front-header-bg {
+  background-color: #fafbfb;
+  border-bottom: 2px solid #e6e6e6;
+  color: #191919;
+}
+
+.nologin .front-header-bg {
+  background-color: #fafbfb;
+  border-bottom: 2px solid #e6e6e6;
+  color: #191919;
+}
+
+.nologin h2 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 50px;
+  margin: 0 0 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  color: #191919;
+}
+
+.featured-content a.btn-orange.btn-lg {
+  margin: 40px 0 60px;
+}
+
+.featured-content .text-content  h3 {
+  font-size: 19px;
+}
+
+
+.nologin .featured-content a.blue-cta {
+  display: inline-block;
+  margin-bottom: 40px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.nologin section.customers {
+  padding: 0 0 80px;
+}
+
+.nologin .row {
+  margin: 0;
+}
+
+.nologin h1 .icon {
+  margin-right: 10px;
+}
+
+.input-group.main-input-group{
+  width: calc(100% + 8px);
+}

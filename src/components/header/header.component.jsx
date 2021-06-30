@@ -31,7 +31,7 @@ const Header = ({isLoggedIn, user}) => (
                                         <MainFeatureMenuItem icon={'icon-Magnifying-Glass-1'} link={'/domain-search'} heading={'Domain Search'}>
                                             Find the email addresses of a company.
                                         </MainFeatureMenuItem>
-                                        <MainFeatureMenuItem icon={'icon-Target-User'} link={''} heading={'Email Finder'}>
+                                        <MainFeatureMenuItem icon={'icon-Target-User'} link={'/email-verifier'} heading={'Email Finder'}>
                                             Find the email address of a professional.
                                         </MainFeatureMenuItem>
                                         <MainFeatureMenuItem icon={'icon-User-9'} link={''} heading={'Author Finder'}>
