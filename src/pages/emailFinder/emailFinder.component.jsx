@@ -75,13 +75,13 @@ export default class EmailFinder extends Component {
     ]
 
     onSearchHandle = (event) => {
-        const { searchInput } = this.state;
-        if (searchInput && searchInput !== '') {
-            this.setState({ result: this.res });
-        } else {
-            this.setState({ searchInputEmpty: true });
-        }
-        event.preventDefault();
+        // const { searchInput } = this.state;
+        // if (searchInput && searchInput !== '') {
+        //     this.setState({ result: this.res });
+        // } else {
+        //     this.setState({ searchInputEmpty: true });
+        // }
+        // event.preventDefault();
     }
 
     onInputChange = (e) => {
@@ -216,7 +216,7 @@ export default class EmailFinder extends Component {
                     <Products blockSize={4} items={products}>
                         <Row>
                             <Col md={12}>
-                                <h2>Where the Email Verifier can be used</h2>
+                                <h2>Where the Email Finder can be used</h2>
                             </Col>
                         </Row>
                     </Products>
