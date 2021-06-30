@@ -1,17 +1,17 @@
-.domainpage-nologin section.product-demo {
+.nologin section.product-demo {
     margin-top: -180px;
     padding-bottom: 0;
 }
 
-.domainpage-nologin section {
+.nologin section {
     color: #404040;
     font-size: 16px;
     padding: 100px 0;
 }
 
-.domainpage-nologin .container {padding: 0;}
+.nologin .container {padding: 0;}
 
-.domainpage-nologin .product-demo form {
+.nologin .product-demo form {
     font-size: 14px;
 }
 
@@ -26,7 +26,7 @@
     padding: 40px;
 }
 
-.domainpage-nologin .homepage-header h1 {
+.nologin .homepage-header h1 {
     font-size: 42px;
     font-weight: 500;
     margin: 80px 0 100px;
@@ -34,7 +34,7 @@
     margin-bottom: 150px;
 }
 
-.domainpage-nologin h1 span.icon.icon-Magnifying-Glass-1 {
+.nologin h1 span.icon.icon-Magnifying-Glass-1 {
     margin-right: 10px;
 }
 
@@ -42,19 +42,19 @@
     overflow: hidden;
 }
 
-.domainpage-nologin .front-header-bg {
+.nologin .front-header-bg {
     background-color: #fafbfb;
     border-bottom: 2px solid #e6e6e6;
     color: #191919;
 }
 
-.domainpage-nologin .front-header-bg {
+.nologin .front-header-bg {
     background-color: #fafbfb;
     border-bottom: 2px solid #e6e6e6;
     color: #191919;
 }
 
-.domainpage-nologin h2 {
+.nologin h2 {
     font-size: 32px;
     font-weight: 400;
     line-height: 50px;
@@ -73,13 +73,21 @@
 }
 
 
-.domainpage-nologin .featured-content a.blue-cta {
+.nologin .featured-content a.blue-cta {
     display: inline-block;
     margin-bottom: 40px;
     font-size: 16px;
     margin-top: 20px;
 }
 
-.domainpage-nologin section.customers {
+.nologin section.customers {
     padding: 0 0 80px;
+}
+
+.nologin .row {
+    margin: 0;
+}
+
+.domainpage.nologin section.products {
+    border-bottom: 2px solid #e6e6e6;
 }

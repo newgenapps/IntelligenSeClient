@@ -12,13 +12,15 @@ import Container from 'react-bootstrap/Container';
 import { Link } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
+import Accordion from 'react-bootstrap/Accordion';
 
 import './domainSearch.styles.css';
 
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import DomainSearchResultNoLogin from '../../components/DomainSearchResultNoLogin/domainSearchResultNoLogin.component';
+import Products from '../../components/Products/products.component';
 
 import Google from '../../assets/image/c_google.webp';
 import Microsoft from '../../assets/image/c_micro.webp';
@@ -51,6 +53,33 @@ export default class DomainSearch extends Component {
         'anurag@newgenapps.com'
     ];
 
+    products = [
+        {
+            heading: 'IntelligenSe website',
+            description: 'Type any company to find a list of email addresses.',
+            icon: 'fal fa-browser',
+            link: 'users/sign_up?utm_medium=domain_search'
+        },
+        {
+            heading: 'Chrome extension',
+            description: 'Find the email addresses behind the websites you visit.',
+            icon: 'fab fa-chrome',
+            link: 'users/sign_up?utm_medium=domain_search'
+        },
+        {
+            heading: 'Bulks',
+            description: 'Enrich a list of companies or websites with email addresses.',
+            icon: 'fal fa-list-alt',
+            link: 'users/sign_up?utm_medium=domain_search'
+        },
+        {
+            heading: 'API',
+            description: "Build your own powerful tools around IntelligenSe's data.",
+            icon: 'fal fa-code',
+            link: 'users/sign_up?utm_medium=domain_search'
+        }
+    ]
+
     onSearchHandle = (event) => {
         const { searchInput } = this.state;
         if (searchInput && searchInput !== '') {
@@ -69,11 +98,12 @@ export default class DomainSearch extends Component {
         const { searchInput, result, searchInputEmpty } = this.state;
         const showSearchResult = result.length > 0;
         const isLoggedIn = false;
+        const products = this.products
         if (!isLoggedIn) {
             return (
                 <>
                     <Header />
-                    <div className="domainpage-nologin">
+                    <div className="domainpage nologin">
                         <div className="front-header-bg">
                             <div className="front-header">
                                 <div className="front-breadcrumb hidden-xs"></div>
@@ -196,81 +226,13 @@ export default class DomainSearch extends Component {
                                 </Row>
                             </Container>
                         </section>
-                        <section className="homepage-description">
-                            <Container>
-                                <Row>
-                                    <Col md={2}>
-                                    </Col>
-                                    <Col md={8} className="center">
-                                        <div className="text-content">
-                                            <div className="text-subtitle">Domain Search</div>
-                                            <h3>Get the email addresses behind any website.</h3>
-                                            <p>
-                                                The Domain Search lists all the people working in a company with their
-                                                name and email address found on the web. With 100+ million email addresses
-                                                indexed, effective search filters and scoring, it's IntelligenSe's most powerful
-                                                email-finding tool.
-                                            </p>
-                                            <Link className="blue-cta" to="/users/sign_up?utm_medium=domain_search">Receive 25 free searches/month</Link>
-                                        </div>
-                                    </Col>
-                                    <Col md={2}>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </section>
-                        <section className="other-features">
-                            <Container>
-                                <Row>
-                                    <Col md={5}>
-                                        <div className="text-content">
-                                            <div className="text-subtitle">Email Finder</div>
-                                            <h3>Find the email address of any professional.</h3>
-                                            <p>
-                                                Find the email addresses of people you want to contact one by one or
-                                                in bulk to enrich your database. The Email Finder uses a large number of
-                                                signals to find the proven or most probable email address of anyone in
-                                                a fraction of second.
-                                            </p>
-                                            <Link className="blue-cta" to="/email-finder">Test the Email Finder</Link>
-                                        </div>
-                                    </Col>
-                                    <Col md={1}>
-                                    </Col>
-                                    <Col md={5}>
-                                        <div className="text-content">
-                                            <div className="text-subtitle">Email Verifier</div>
-                                            <h3>Verify the deliverability of any email address.</h3>
-                                            <p>
-                                                The Email Verifier does a complete check of the email address to let
-                                                you send your emails with a complete confidence. As it uses our
-                                                unique set of data, the Email Verifier can return a result even
-                                                where other standard verification tools fail.
-                                            </p>
-                                            <Link className="blue-cta" to="/email-verifier">Test the Email Verifier</Link>
-                                        </div>
-                                    </Col>
-                                    <Col md={1}>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </section>
-                        <section className="data-privacy">
-                            <Container>
-                                <Row>
-                                    <Col md={12}>
-                                        <h2>We believe in data transparency.</h2>
-                                        <p className="big-p">
-                                            At IntelligenSe, we are convinced the most valuable data is sourced and
-                                            processed using transparent methods. Every single email address we
-                                            collect and distribute in the Domain Search has public sources we
-                                            indicate, along with the discovery dates.
-                                        </p>
-                                        <Link className="btn-orange btn-lg" to="/our-data">Learn more</Link>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </section>
+                        <Products blockSize={4} items={products}>
+                            <Row>
+                                <Col md={12}>
+                                    <h2>Where the Domain Search can be used</h2>
+                                </Col>
+                            </Row>
+                        </Products>
                     </div>
                     <Footer />
                 </>

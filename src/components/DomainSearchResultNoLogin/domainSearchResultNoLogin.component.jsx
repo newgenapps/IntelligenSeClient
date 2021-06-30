@@ -66,7 +66,7 @@ function DomainSearchResultNoLogin({result}) {
                                         <span data-toggle="tooltip" data-placement="top" title="" data-original-title="Please log in to see the entire email addresses.">{`${email[1]+email[2]}`}</span>
                                     </OverlayTrigger>
                                     
-                                    {`${email.slice(2, )}`}
+                                    {`${email.slice(3, )}`}
                                 </div>
                             </div>
                         </div>
