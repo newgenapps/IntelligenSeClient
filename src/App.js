@@ -17,13 +17,6 @@ function App({ isLoggedIn }) {
       <Switch>
         <Route
           exact
-          path="/"
-          render={(props) => <HomePage {...props} />}
-        />
-      </Switch>
-      <Switch>
-        <Route
-          exact
           path="/domain-search"
           render={(props) => <DomainSearch {...props} />}
         />
@@ -76,6 +69,14 @@ function App({ isLoggedIn }) {
             /> :
             <Redirect to="/users/sign-in" />
         }
+      </Switch>
+
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) => <HomePage {...props} />}
+        />
       </Switch>
 
     </BrowserRouter>
