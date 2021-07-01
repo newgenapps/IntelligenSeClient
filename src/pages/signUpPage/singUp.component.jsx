@@ -101,9 +101,6 @@ class SignUpPage extends Component {
                         </h1>
                         <div className="board-box">
                             <form className="email-signup-form">
-                                {
-                                    console.log(currentStep)
-                                }
                                 {currentStep === 1 ? (
                                     <div className="form-container containerone">
                                         <div className="form-group group">
