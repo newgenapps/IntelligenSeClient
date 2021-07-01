@@ -5,6 +5,8 @@
 
 .dashboard-body.login {
     margin-top: 0;
+    background-color: #fafbfb;
+    padding-bottom: 100px;
 }
 
 .login-container {

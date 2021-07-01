@@ -2,6 +2,8 @@ import { userActionTypes } from "./user.types";
 
 const INITIAL_STATE = {
     user: {
+      firstName: 'Sundaram',
+      lastName: 'Srivastava'
     },
     isLoggedIn: false
 }
