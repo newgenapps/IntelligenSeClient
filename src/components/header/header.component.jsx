@@ -13,6 +13,7 @@ import MainFeatureMenuItem from '../mainFeaturesMenuItem/mainFeaturesMenuItem.co
 import {login, logout} from './../../redux/User/user.actions';
 
 const Header = ({isLoggedIn, user}) => (
+    
     <nav className="nav-bar">
         <Container>
             <div className="navbar-logo">
@@ -25,7 +26,7 @@ const Header = ({isLoggedIn, user}) => (
                     <div className="pull-left">
                         <ul className="menu">
                             <li>
-                                <Link className="menu-item dropper">Product <span className="arrow-down fas fa-angle-down"></span></Link>
+                                <Link className="menu-item dropper" to="">Product <span className="arrow-down fas fa-angle-down"></span></Link>
                                 <DropDownCard>
                                     <div className="main-features">
                                         <MainFeatureMenuItem icon={'icon-Magnifying-Glass-1'} link={'/domain-search'} heading={'Domain Search'}>
@@ -47,10 +48,10 @@ const Header = ({isLoggedIn, user}) => (
                                 </DropDownCard>
                             </li>
                             <li>
-                                <Link className="menu-item">Pricing</Link>
+                                <Link className="menu-item" to="">Pricing</Link>
                             </li>
                             <li>
-                                <Link className="menu-item dropper">Resources <span className="arrow-down fas fa-angle-down"></span></Link>
+                                <Link className="menu-item dropper" to="">Resources <span className="arrow-down fas fa-angle-down"></span></Link>
                                 <DropDownCard className="small">
                                     <div className="main-features">
                                         <MainFeatureMenuItem link={''} heading={'Blog'} target={'_blank'}>
@@ -75,7 +76,7 @@ const Header = ({isLoggedIn, user}) => (
                                 {`Hi ${user.firstName}!`}
                             </li>
                             <li className="nav-signup bttn-orange">
-                                <Link to='#'>Dashboard <span className="btn-arrow">➞</span></Link>
+                                <Link to='/search'>Dashboard <span className="btn-arrow">➞</span></Link>
                             </li>
                         </ul>
                     </div>

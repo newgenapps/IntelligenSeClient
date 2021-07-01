@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 import HomePage from "./pages/home_page/homePage.component";
 import DomainSearch from "./pages/domainSearch/domainSearch.component";
@@ -10,7 +11,7 @@ import DomainSearchDashboard from "./pages/domainSearchDashboard/domainSearchDas
 
 import './App.css'
 
-function App() {
+function App({ isLoggedIn }) {
   return (
     <BrowserRouter>
       <Switch>
@@ -42,28 +43,49 @@ function App() {
         />
       </Switch>
       <Switch>
+      {
+          !isLoggedIn ?
         <Route
           exact
           path="/users/sign-in"
           render={(props) => <SignInPage {...props} />}
         />
+        :
+        <Redirect to="/search"></Redirect>
+      }
       </Switch>
       <Switch>
+      {
+          !isLoggedIn ?
         <Route
           exact
           path="/users/sign-up"
           render={(props) => <SignUpPage {...props} />}
         />
+        :
+        <Redirect to="/search"></Redirect>
+      }
       </Switch>
       <Switch>
-        <Route
-          exact
-          path="/search"
-          render={(props) => <DomainSearchDashboard {...props} />}
-        />
+        {
+          isLoggedIn ?
+            <Route
+              exact
+              path="/search"
+              render={(props) => <DomainSearchDashboard {...props} />}
+            /> :
+            <Redirect to="/users/sign-in" />
+        }
       </Switch>
+
     </BrowserRouter>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.user.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps, null)(App);

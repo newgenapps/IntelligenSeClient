@@ -9,9 +9,12 @@ import UserAccountDropdownComponent from '../UserAccountDropdown/userAccountDrop
 
 import { toggleDropDown } from '../../redux/Header/header.actions';
 
-function DashboardHeader({toggleDropDown, user}) {
-    const infoImage = [`https://i2.wp.com/ui-avatars.com/api/${user.firstName[0]}+${user.lastName[0]}/128/168eea/fff?ssl=1`]
-
+function DashboardHeader({toggleDropDown, user, isLoggedIn}) {
+    let infoImage = ``
+    if(isLoggedIn){
+        infoImage = `https://i2.wp.com/ui-avatars.com/api/${user.firstName[0]}+${user.lastName[0]}/128/168eea/fff?ssl=1`
+    }
+    
     return (
         <div className="dashboard-header">
             <nav className="navbar">
@@ -50,19 +53,40 @@ function DashboardHeader({toggleDropDown, user}) {
                 </div>
                 <div className="user">
                     <ul>
-                        <li className="nav-link" id="dropdown-account-link" onClick={toggleDropDown}>
+                        <li className="nav-link" id="dropdown-account-link" tabIndex="0" 
+                        onFocus={(e) => {
+                            if (e.currentTarget === e.target) {
+                            } else {
+                            }
+                            if (!e.currentTarget.contains(e.relatedTarget)) {
+                              // Not triggered when swapping focus between children
+                              toggleDropDown()
+                            }
+                          }}
+                          onBlur={(e) => {
+                            if (e.currentTarget === e.target) {
+                            } else {
+                              toggleDropDown()
+                            }
+                            if (!e.currentTarget.contains(e.relatedTarget)) {
+                              // Not triggered when swapping focus between children
+                              toggleDropDown()
+                            }
+                          }}
+                          >
                             <span className="fas fa-angle-down hidden-xs hidden-sm"></span>
                             <div className="profile-pic pic-float">
-                                <img alt="Profile"  src={infoImage[0]} />
+                                <img alt="Profile"  src={infoImage} />
                             </div>
                             <div className="account-information hidden-xs hidden-sm">
                                 <strong>{user.firstName} {user.lastName}</strong>
                                 <br />
                                 <span className="light-grey">Free plan</span>
                             </div>
+
+                        <UserAccountDropdownComponent />
                         </li>
                     </ul>
-                    <UserAccountDropdownComponent />
                 </div>
             </nav>
         </div>

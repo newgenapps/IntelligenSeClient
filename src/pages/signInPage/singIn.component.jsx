@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import Container from 'react-bootstrap/Container';
-import Alert from 'react-bootstrap/Alert'
+import Alert from 'react-bootstrap/Alert';
 
 import SignHeader from '../../components/signHeader/signHeader.component';
+
+import {login} from './../../redux/User/user.actions';
 
 import './signIn.styles.css';
 
@@ -12,8 +15,8 @@ class SignInPage extends Component {
         super(props)
 
         this.state = {
-            userId: undefined,
-            userPassword: undefined,
+            userId: '',
+            userPassword: '',
             inputEmpty: false
         }
     }
@@ -27,10 +30,9 @@ class SignInPage extends Component {
         const { userId, userPassword } = this.state;
         const validateEmail = this.validateEmail;
         if (userPassword && userPassword !== '' && validateEmail(userId)) {
-            console.log('loggedIn')
+            this.props.login();
         } else {
             this.setState({ inputEmpty: true })
-            console.error("invalid userid or password")
         }
         event.preventDefault();
     }
@@ -91,5 +93,10 @@ class SignInPage extends Component {
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+      login: () => dispatch(login())
+    }
+  }
 
-export default SignInPage
+export default connect(null, mapDispatchToProps)(SignInPage)

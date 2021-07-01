@@ -9,7 +9,6 @@ const headerReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
 
         case headerActionsType.DROP_DOWN_OPEN:
-
            return {
 
              ...state, isDropDownOpen: !state.isDropDownOpen,

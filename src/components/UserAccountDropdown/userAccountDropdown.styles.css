@@ -21,7 +21,7 @@ ul.dropdown-dashboard {
     position: relative;
 }
 
-ul.dropdown-dashboard li a {
+nav.navbar .user .nav-link ul.dropdown-dashboard li a {
     border: 0;
     border-top: 1px solid #e6e6e6;
     color: #626262;
@@ -32,6 +32,7 @@ ul.dropdown-dashboard li a {
     text-decoration: none!important;
     transition: all .2s ease;
     width: 100%;
+    margin: 0;
 }
 
 ul.dropdown-dashboard  li {

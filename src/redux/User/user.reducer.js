@@ -2,8 +2,6 @@ import { userActionTypes } from "./user.types";
 
 const INITIAL_STATE = {
     user: {
-      firstName: 'Sundaram',
-      lastName: 'Srivastava'
     },
     isLoggedIn: false
 }
@@ -16,15 +14,13 @@ const userReducer = (state = INITIAL_STATE, action) => {
 
            return {
 
-             ...state, isLoggedIn: true,
+             ...state, user: {firstName: 'Sundaram', lastName: 'Srivastava'}, isLoggedIn: true,
 
            };
 
         case userActionTypes.LOGOUT:
-
            return {
-              ...state, isLoggedIn: false,
-
+              ...state, user: {}, isLoggedIn: false,
            };
 
          default: return state;
