@@ -41,3 +41,12 @@ form.simple_form.new_user .board-box {
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+.login-container.sign-up {
+    max-width: 780px;
+}
+
+form.email-signup-form {
+    margin: 0 auto;
+    max-width: 480px;
+}

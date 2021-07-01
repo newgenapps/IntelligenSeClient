@@ -5,6 +5,7 @@ import DomainSearch from "./pages/domainSearch/domainSearch.component";
 import VerifyEmail from "./pages/verifyEmail/verifyEmail.component";
 import EmailFinder from "./pages/emailFinder/emailFinder.component";
 import SignInPage from "./pages/signInPage/singIn.component";
+import SignUpPage from "./pages/signUpPage/singUp.component";
 
 import './App.css'
 
@@ -42,8 +43,15 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/user/sign-in"
+          path="/users/sign-in"
           render={(props) => <SignInPage {...props} />}
+        />
+      </Switch>
+      <Switch>
+        <Route
+          exact
+          path="/users/sign-up"
+          render={(props) => <SignUpPage {...props} />}
         />
       </Switch>
     </BrowserRouter>

@@ -83,10 +83,10 @@ const Header = ({isLoggedIn, user}) => (
                         <div className="pull-right">
                         <ul className="menu">
                             <li className="nav-signin">
-                                <Link>Sign in</Link>
+                                <Link to="users/sign-in">Sign in</Link>
                             </li>
                             <li className="nav-signup bttn-orange">
-                                <Link>Sign up</Link>
+                                <Link to="/users/sign-up">Sign up</Link>
                             </li>
                         </ul>
                     </div>
