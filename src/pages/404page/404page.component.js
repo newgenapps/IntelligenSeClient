@@ -9,7 +9,11 @@ function PageNotFound() {
             <div className="dialog404">
                 <div className="error-code">404</div>
                 <h1>Page not found.</h1>
-                <p>This page doesn't seem to exist. If you think there should definitely be something here, please email us at <Link to="mailto:info@intelligense.ai">info@intelligense.ai</Link>.</p>
+                <p>This page doesn't seem to exist. If you think there should definitely be something here, please email us at {' '}
+                    <Link to="#" onClick={(e) => {
+                        window.location = 'mailto:info@intelligense.ai';
+                        e.preventDefault();
+                    }}>info@intelligense.ai</Link>.</p>
                 <Link className="cta" to="/">Homepage</Link><Link className="cta" to="/search">Dashboard</Link>
             </div>
         </div>
