@@ -21,6 +21,8 @@ import Footer from '../../components/footer/footer.component';
 import DomainSearchResultNoLogin from '../../components/DomainSearchResultNoLogin/domainSearchResultNoLogin.component';
 import Products from '../../components/Products/products.component';
 
+import { CheckIsValidDomain } from '../../assets/utils/inputCheck.utils';
+
 import Google from '../../assets/image/c_google.webp';
 import Microsoft from '../../assets/image/c_micro.webp';
 import Adobe from '../../assets/image/c_adobe.webp';
@@ -33,7 +35,7 @@ export default class DomainSearch extends Component {
         super(props)
 
         this.state = {
-            searchInput: undefined,
+            searchInput: '',
             result: [],
             searchInputEmpty: false
         }
@@ -81,7 +83,7 @@ export default class DomainSearch extends Component {
 
     onSearchHandle = (event) => {
         const { searchInput } = this.state;
-        if (searchInput && searchInput !== '') {
+        if (CheckIsValidDomain(searchInput)) {
             this.setState({ result: this.emailArray });
         } else {
             this.setState({ searchInputEmpty: true });

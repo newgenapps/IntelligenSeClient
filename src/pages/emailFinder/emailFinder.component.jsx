@@ -33,7 +33,7 @@ export default class EmailFinder extends Component {
         super(props)
 
         this.state = {
-            searchInput: undefined,
+            searchInput: '',
             searchInputEmpty: false,
             result: undefined
         }

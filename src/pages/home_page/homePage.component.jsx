@@ -27,12 +27,14 @@ import invison from '../../assets/image/c_invision.webp';
 import ibm from '../../assets/image/c_ibm.webp';
 import Manpower from '../../assets/image/c_manpower.webp';
 
+import { CheckIsValidDomain } from '../../assets/utils/inputCheck.utils';
+
 export default class HomePage extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            searchInput: undefined,
+            searchInput: '',
             result: [],
             searchInputEmpty: false
         }
@@ -53,7 +55,7 @@ export default class HomePage extends Component {
 
     onSearchHandle = (event) => {
         const {searchInput} = this.state;
-        if(searchInput && searchInput !== ''){
+        if(CheckIsValidDomain(searchInput)){
             this.setState({result: this.emailArray});
         }else{
             this.setState({searchInputEmpty: true});

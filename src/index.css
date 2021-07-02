@@ -36,6 +36,10 @@ body {
   padding: 0;
 }
 
+body, #root, .dashboard-body.login, .dashboard {
+  height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
