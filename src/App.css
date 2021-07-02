@@ -139,3 +139,13 @@ input[type=checkbox], input[type=radio] {
 .radios-container input[type=radio] {
     display: none;
 }
+
+.at-form {
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    color: #888;
+    float: left;
+    font-size: 16px;
+    height: 52px;
+    padding: 12px 15px;
+}

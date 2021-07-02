@@ -12,6 +12,7 @@ import DomainSearchDashboard from "./pages/domainSearchDashboard/domainSearchDas
 import './App.css'
 import PageNotFound from "./pages/404page/404page.component";
 import EmailVerifierDashboard from "./pages/emailVerifierDashboard/emailVerifierDashboard.component";
+import FinderPageDashboard from "./pages/FinderPageDashboard/finderPageDashboard.component";
 
 function App({isLoggedIn}) {
   return (
@@ -56,6 +57,11 @@ function App({isLoggedIn}) {
           exact
           path="/verify"
           render={(props) => <EmailVerifierDashboard {...props} />} 
+        />
+        <Route
+          exact
+          path="/finder"
+          render={(props) => <FinderPageDashboard {...props} />} 
         />
         <Route render={(props) => <PageNotFound {...props}/>}/>
       </Switch>

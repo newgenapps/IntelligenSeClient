@@ -1,20 +1,27 @@
+/**
+ * TO DO:
+ * - result ui
+ * - result filtering
+ */
+
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Alert from 'react-bootstrap/Alert';
 
-import './emailVerifierDashboard.styles.css';
+import './finderPageDashboard.styles.css';
 
 import DashboardHeader from '../../components/DashboardHeader/dashboardHeader.component';
 import EmailVerifyResultNoLogin from '../../components/EmailVerifyResultNoLogin/EmailVerifyResultNoLogin.component';
 
 import { validateEmail } from '../../assets/utils/inputCheck.utils';
 
-export default class EmailVerifierDashboard extends Component {
+export default class FinderPageDashboard extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            searchInput: '',
+            searchName: '',
+            searchDomain: '',
             searchInputEmpty: false,
             result: undefined
         }
@@ -39,27 +46,31 @@ export default class EmailVerifierDashboard extends Component {
     }
 
     onInputChange = (e) => {
+        const {name, value} = e.target;
         this.setState({ searchInputEmpty: false });
-        this.setState({ searchInput: e.target.value })
+        this.setState({ [name]: value })
     }
     render() {
-        const { searchInput, result, searchInputEmpty } = this.state;
+        const { result, searchInputEmpty, searchName, searchDomain } = this.state;
         const showSearchResult = result ? true : false;
+        const onInputChange = this.onInputChange;
 
         return (
             <div className="dashboard domainsearch">
-                <DashboardHeader activePage={"Verifier"}/>
+                <DashboardHeader activePage={"Finder"}/>
                 <div className="dashboard-body">
                     <Container>
                         <div className="board-box">
                             <h2>
-                                Email Verifier
+                                Email Finder
                             </h2>
                             <form className="dashboard-search">
                                 <div className="input-group main-input-group">
-                                    <input autoComplete="off" className="form-control" id="domain-field" placeholder="example@company.com" required="required" tabIndex="20" type="text" value={searchInput} onChange={this.onInputChange} />
+                                    <input autoComplete="off" autoFocus="autofocus" className="form-control" id="full-name-field" placeholder="John Doe" name="searchName" required="required" type="text" value={searchName} onChange={onInputChange}/>
+                                    <div className="at-form">@</div>
+                                    <input autoComplete="off" className="form-control" id="domain-field" placeholder="company.com" required="required" type="text" name="searchDomain" value={searchDomain} onChange={onInputChange}/>
                                     <span className="input-group-btn">
-                                        <button className="btn-white" data-loading="none" id="search-btn" tabIndex="21" onClick={this.onSearchHandle}>
+                                        <button className="btn-white" data-loading="none" id="finder-btn" type="submit">
                                             <div className="far fa-search"></div>
                                         </button>
                                     </span>
@@ -67,7 +78,7 @@ export default class EmailVerifierDashboard extends Component {
                                 {
                                     searchInputEmpty ?
                                         <Alert variant={'danger'}>
-                                            Please enter a valid email
+                                            Please enter a valid inputs
                                         </Alert> : ''
                                 }
                                 <div className="search-results-container">
@@ -81,7 +92,7 @@ export default class EmailVerifierDashboard extends Component {
                                 <div className="light-grey before-search-message">
                                     {
                                         !showSearchResult ? (
-                                            <p>Enter a email to launch the verify.</p>
+                                            <p>Enter a full name and the domain name of the email address (for example "newgenapps.com").</p>
                                         ) : ''
                                     }
                                 </div>

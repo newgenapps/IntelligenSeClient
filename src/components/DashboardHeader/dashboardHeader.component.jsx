@@ -27,7 +27,7 @@ function DashboardHeader({toggleDropDown, user, isLoggedIn, activePage}) {
             name: 'Verifier'
         },
         {
-            link: '/find',
+            link: '/finder',
             icon: 'icon-Target-User',
             name: 'Finder'
         },
