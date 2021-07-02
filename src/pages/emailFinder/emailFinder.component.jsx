@@ -14,13 +14,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
 
+// Importing Styles
 import './emailFinder.styles.css';
 
+// Importing components
 import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import Products from '../../components/Products/products.component';
 import EmailVerifyResultNoLogin from '../../components/EmailVerifyResultNoLogin/EmailVerifyResultNoLogin.component';
 
+// Importing Images
 import Google from '../../assets/image/c_google.webp';
 import Microsoft from '../../assets/image/c_micro.webp';
 import Adobe from '../../assets/image/c_adobe.webp';
@@ -29,9 +32,15 @@ import ibm from '../../assets/image/c_ibm.webp';
 import Manpower from '../../assets/image/c_manpower.webp';
 
 export default class EmailFinder extends Component {
+
     constructor(props) {
         super(props)
 
+        /**
+         * @dev -> Only local states for this page must be defined here
+         *         if ever needed any state which needs to be on more this page
+         *         define it in redux store
+         */
         this.state = {
             searchName: '',
             searchDomain: '',
@@ -40,14 +49,12 @@ export default class EmailFinder extends Component {
         }
     }
 
-    res = {
-        Domain: 'newgenapps.com',
-        Format: 'Valid',
-        ServerStatus: 'Valid',
-        Type: 'Professional',
-        EmailStatus: 'accept all'
-    }
-
+    /**
+     * @title Products list
+     * @dev Change this array if want to change the 
+     *      "Where the Email Finder can be used"
+     *      section.
+     */
     products = [
         {
             heading: 'IntelligenSe website',
@@ -75,6 +82,12 @@ export default class EmailFinder extends Component {
         }
     ]
 
+    /**
+     * @title onSearchHandle
+     * @param {object} event
+     * @description this funciton will be triggered when the search button is pressed.
+     * @todo Write the logic to fetch result and show result.
+     */
     onSearchHandle = (event) => {
         // const { searchInput } = this.state;
         // if (searchInput && searchInput !== '') {
@@ -85,11 +98,18 @@ export default class EmailFinder extends Component {
         // event.preventDefault();
     }
 
+    /**
+     * @title onInputChange
+     * @param {object} e 
+     * @description this function addes the input into its respective state object
+     */
     onInputChange = (e) => {
         const {name, value} = e.target;
         this.setState({ searchInputEmpty: false });
         this.setState({ [name]: value })
     }
+
+    
     render() {
         const { result, searchInputEmpty, searchName, searchDomain } = this.state;
         
