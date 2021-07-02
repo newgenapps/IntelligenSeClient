@@ -13944,14 +13944,6 @@ trix-editor figcaption {
 .step1.new .help-block {
   color: #ef1d1d;
 }
-.step1.new .iti__flag {
-  background-image: url(https://hunter.io/packs/media/images/007b2705c0a8f69dfdf6.png);
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .step1.new .iti__flag {
-    background-image: url(https://hunter.io/packs/media/images/9d5328fb490cddd43f66.png);
-  }
-}
 .iti__flag {
   width: 20px;
 }
@@ -17173,16 +17165,13 @@ trix-editor figcaption {
   margin-top: 100px;
 }
 .visitors.homepage .homepage-transparency {
-  background: url(https://hunter.io/packs/media/images/51bc4fd355e3af6cf68f.jpg)
-    no-repeat center 60px;
   background-size: 700px;
   padding: 100px 0 140px;
   text-align: center;
 }
 @media screen and (max-width: 767px) {
   .visitors.homepage .homepage-transparency {
-    background: url(https://hunter.io/packs/media/images/aa3aca9a9ebc6255982f.jpg)
-      no-repeat center 60px;
+    
     background-size: 550px;
   }
 }
