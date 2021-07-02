@@ -5,14 +5,22 @@
  *        If needed please create a new folder in the same directory and connect that to rootreducer.
  */
 
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import rootReducer from './rootReducer';
+import logger from 'redux-logger';
+import {persistStore} from 'redux-persist';
 
-import { composeWithDevTools } from 'redux-devtools-extension';
+const middlewares = [];
+
+if( process.env.NODE_ENV === 'development') {
+    middlewares.push(logger)
+}
 
 const store = createStore(
     rootReducer,
-    composeWithDevTools(),
+    applyMiddleware(...middlewares)
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export {store, persistor};
