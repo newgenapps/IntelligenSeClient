@@ -73,7 +73,7 @@ const Header = ({isLoggedIn, user}) => (
                         <div className="pull-right">
                         <ul className="menu">
                             <li className="dark-grey logged-name-front grey">
-                                {`Hi ${user.firstName}!`}
+                                {`Hi ${user.firstName} !`}
                             </li>
                             <li className="nav-signup bttn-orange">
                                 <Link to='/search'>Dashboard <span className="btn-arrow">➞</span></Link>

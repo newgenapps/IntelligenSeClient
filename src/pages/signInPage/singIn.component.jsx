@@ -7,6 +7,7 @@ import Alert from 'react-bootstrap/Alert';
 import SignHeader from '../../components/signHeader/signHeader.component';
 
 import {login} from './../../redux/User/user.actions';
+import { validateEmail } from '../../assets/utils/inputCheck.utils';
 
 import './signIn.styles.css';
 
@@ -21,14 +22,8 @@ class SignInPage extends Component {
         }
     }
 
-    validateEmail = (email) => {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-
     onLoginHandle = (event) => {
         const { userId, userPassword } = this.state;
-        const validateEmail = this.validateEmail;
         if (userPassword && userPassword !== '' && validateEmail(userId)) {
             this.props.login();
         } else {

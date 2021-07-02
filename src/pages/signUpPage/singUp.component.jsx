@@ -7,6 +7,8 @@ import Alert from 'react-bootstrap/Alert';
 
 import SignHeader from '../../components/signHeader/signHeader.component';
 
+import { validateEmail } from '../../assets/utils/inputCheck.utils';
+
 import './signUp.styles.css';
 
 class SignUpPage extends Component {
@@ -23,14 +25,8 @@ class SignUpPage extends Component {
         }
     }
 
-    validateEmail = (email) => {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-
     onButtonClickHandle = (event) => {
         const { userId, userPassword, currentStep, userFirstName, userLastName } = this.state;
-        const validateEmail = this.validateEmail;
         switch (currentStep) {
             case 1:
                 if (validateEmail(userId)) {

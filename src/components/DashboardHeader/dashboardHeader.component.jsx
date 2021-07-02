@@ -9,11 +9,34 @@ import UserAccountDropdownComponent from '../UserAccountDropdown/userAccountDrop
 
 import { toggleDropDown } from '../../redux/Header/header.actions';
 
-function DashboardHeader({toggleDropDown, user, isLoggedIn}) {
+function DashboardHeader({toggleDropDown, user, isLoggedIn, activePage}) {
     let infoImage = ``
     if(isLoggedIn){
         infoImage = `https://i2.wp.com/ui-avatars.com/api/${user.firstName[0]}+${user.lastName[0]}/128/168eea/fff?ssl=1`
     }
+
+    const navLinks = [
+        {
+            link: '/bulk',
+            icon: 'icon-List-1',
+            name: 'Bulks',
+        },
+        {
+            link: '/verify',
+            icon: 'icon-Circle-Check-2',
+            name: 'Verifier'
+        },
+        {
+            link: '/find',
+            icon: 'icon-Target-User',
+            name: 'Finder'
+        },
+        {
+            link: '/search',
+            icon: 'icon-Magnifying-Glass-1',
+            name: 'Search'
+        }
+    ]
     
     return (
         <div className="dashboard-header">
@@ -25,8 +48,18 @@ function DashboardHeader({toggleDropDown, user, isLoggedIn}) {
                 </div>
                 <div className="menu">
                     <ul>
-                        <li className="nav-link" id="bulks-nav-link">
-                            <Link className="" to="/bulk">
+                        {
+                            navLinks.map((item, index) => (
+                                <li className="nav-link" key={index}>
+                                    <Link className={item.name === activePage ? "active" : ""} to={item.link}>
+                                        <div className={`icon ${item.icon}`}></div>
+                                        <span className="hidden-xs">{item.name}</span>
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                        {/* <li className="nav-link" id="bulks-nav-link">
+                            <Link className={isActive(bulk)} to="/bulk">
                                 <div className="icon icon-List-1"></div>
                                 <span className="hidden-xs">Bulks</span>
                             </Link>
@@ -48,7 +81,7 @@ function DashboardHeader({toggleDropDown, user, isLoggedIn}) {
                                 <div className="icon icon-Magnifying-Glass-1"></div>
                                 <span className="hidden-xs">Search</span>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className="user">

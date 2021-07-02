@@ -42,7 +42,7 @@ function DomainSearchResultNoLogin({result}) {
                             </Tooltip>
                         }
                     >
-                        <span data-toggle="tooltip" data-placement="top" title="" data-original-title="Last name">{`{last}`}</span>
+                        <span data-toggle="tooltip" data-placement="top" title="" data-original-title="Last name">{`{l}`}</span>
                     </OverlayTrigger>
                     @newgenapps.com</strong></div>
 
@@ -73,7 +73,7 @@ function DomainSearchResultNoLogin({result}) {
                         )
                     )
                 }
-                <p class="grey search-see-all">{`${result.length - 5}`} more results for "newgenapps.com"</p>
+                <p className="grey search-see-all">{`${result.length - 5}`} more results for "newgenapps.com"</p>
             </div>
             <div className="domain-search-cta" >
                 <p>

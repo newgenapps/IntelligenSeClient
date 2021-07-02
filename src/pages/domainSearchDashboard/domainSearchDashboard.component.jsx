@@ -73,7 +73,7 @@ export default class DomainSearchDashboard extends Component {
 
         return (
             <div className="dashboard domainsearch">
-                <DashboardHeader />
+                <DashboardHeader activePage={'Search'}/>
                 <div className="dashboard-body">
                     <Container>
                         <div className="board-box">

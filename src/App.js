@@ -10,6 +10,8 @@ import SignUpPage from "./pages/signUpPage/singUp.component";
 import DomainSearchDashboard from "./pages/domainSearchDashboard/domainSearchDashboard.component";
 
 import './App.css'
+import PageNotFound from "./pages/404page/404page.component";
+import EmailVerifierDashboard from "./pages/emailVerifierDashboard/emailVerifierDashboard.component";
 
 function App({isLoggedIn}) {
   return (
@@ -50,6 +52,12 @@ function App({isLoggedIn}) {
           path="/search"
           render={(props) => (isLoggedIn ? <DomainSearchDashboard {...props} /> : <Redirect to="/users/sign-in"/>)}
         />
+        <Route
+          exact
+          path="/verify"
+          render={(props) => <EmailVerifierDashboard {...props} />} 
+        />
+        <Route render={(props) => <PageNotFound {...props}/>}/>
       </Switch>
     </BrowserRouter>
   );

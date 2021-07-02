@@ -4,11 +4,11 @@ import Col from 'react-bootstrap/Col';
 
 import './EmailVerifyResultNoLogin.styles.css';
 
-function EmailVerifyResultNoLogin({result}) {
+function EmailVerifyResultNoLogin({result, loggedin= false}) {
     const {EmailStatus, Format, ServerStatus, Type, Domain} = result;
     return (
         <>
-            <div className="verifier-result">
+            <div className={`verifier-result ${loggedin ? 'dashboard-res' : ''}`}>
                 {
                     EmailStatus === 'accept all' ? (
                         <>
@@ -20,32 +20,32 @@ function EmailVerifyResultNoLogin({result}) {
                 }
                 
             </div>
-            <div className="verify-result-details">
+            <div className={`verify-result-details ${loggedin ? 'dashboard-res' : ''}`}>
                 <Row>
                     <Col md={6}>
-                        <div class="verifier-detail">
+                        <div className="verifier-detail">
                             Format
-                            <div class="pull-right" id="email-format"><div class="green">{Format}</div></div>
+                            <div className="pull-right" id="email-format"><div className="green">{Format}</div></div>
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div class="verifier-detail">
+                        <div className="verifier-detail">
                             Type
-                            <div class="pull-right" id="email-type"><div class="green">{Type}</div></div>
+                            <div className="pull-right" id="email-type"><div className="green">{Type}</div></div>
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col md={6}>
-                        <div class="verifier-detail">
+                        <div className="verifier-detail">
                             Server Status
-                            <div class="pull-right" id="email-format"><div class="green">{ServerStatus}</div></div>
+                            <div className="pull-right" id="email-format"><div className="green">{ServerStatus}</div></div>
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div class="verifier-detail">
+                        <div className="verifier-detail">
                             Email status 
-                            <div class="pull-right" id="email-type"><div class="red">{EmailStatus}</div></div>
+                            <div className="pull-right" id="email-type"><div className="red">{EmailStatus}</div></div>
                         </div>
                     </Col>
                 </Row>

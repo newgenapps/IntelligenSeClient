@@ -28,12 +28,14 @@ import invison from '../../assets/image/c_invision.webp';
 import ibm from '../../assets/image/c_ibm.webp';
 import Manpower from '../../assets/image/c_manpower.webp';
 
+import { validateEmail } from '../../assets/utils/inputCheck.utils';
+
 export default class VerifyEmail extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            searchInput: undefined,
+            searchInput: '',
             searchInputEmpty: false,
             result: undefined
         }
@@ -70,7 +72,7 @@ export default class VerifyEmail extends Component {
 
     onSearchHandle = (event) => {
         const { searchInput } = this.state;
-        if (searchInput && searchInput !== '') {
+        if (validateEmail(searchInput)) {
             this.setState({ result: this.res });
         } else {
             this.setState({ searchInputEmpty: true });
