@@ -105,7 +105,7 @@ class SignUpPage extends Component {
                                             </label>
                                             <input autoComplete="email" autoFocus="autofocus" className="form-control input-lg" id="email-signup-field" name="userId" placeholder="you@company.com" required="required" type="email" value={userId} onChange={onInputChange} />
                                         </div>
-                                        <button className="full-width btn-lg btn-orange" disabled={userId && this.validateEmail(userId) ? false : true} id="signup-email-button" onClick={onButtonClickHandle}>Continue</button>
+                                        <button className="full-width btn-lg btn-orange" disabled={userId && validateEmail(userId) ? false : true} id="signup-email-button" onClick={onButtonClickHandle}>Continue</button>
                                         <p className="terms-mention grey">
                                             By signing up, you agree to our
                                             <Link to="/terms-of-service" target="_blank">Terms of Service</Link>
