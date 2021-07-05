@@ -1,27 +1,19 @@
-# The first image is for compiling the client files, the second is for serving.
-
-# BUILD IMAGE
-FROM node:14-alpine as build-stage
-
+# Name the node stage "builder"
+FROM node:10 AS builder
+# Set working directory
 WORKDIR /app
-
-# Install dependencies
-COPY package*.json ./
-RUN npm install
-
-# Build
+# Copy all files from current directory to working dir in image
 COPY . .
-RUN npm run build
+# install node modules and build assets
+RUN npm install && npm run build
 
-# -----------------------------------------------------------------------------
-# SERVING IMAGE
-FROM fitiavana07/nginx-react
-
-# Copy built files
-COPY --from=build-stage /app/build /usr/share/nginx/html
-
-# 80 for HTTP
-EXPOSE 80
-
-# Run nginx
-CMD nginx -g 'daemon off;'
+# nginx state for serving content
+FROM nginx:alpine
+# Set working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+# Remove default nginx static assets
+RUN rm -rf ./*
+# Copy static assets from builder stage
+COPY --from=builder /app/build .
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
