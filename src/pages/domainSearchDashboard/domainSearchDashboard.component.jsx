@@ -65,7 +65,7 @@ export default class DomainSearchDashboard extends Component {
         this.setState({filterType: parseInt(e.target.value)})
     }
     render() {
-        const {filterType, searchInput, searchInputEmpty, result} = this.state;
+        const {filterType, searchInput, searchInputEmpty, } = this.state;
         const FilterArray = this.FilterArray;
         const handleSearchInputChange = this.handleSearchInputChange;
         const onSearchHandle = this.onSearchHandle;
