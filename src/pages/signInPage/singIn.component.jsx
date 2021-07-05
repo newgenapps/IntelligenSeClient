@@ -8,6 +8,7 @@ import SignHeader from '../../components/signHeader/signHeader.component';
 
 import {login} from './../../redux/User/user.actions';
 import { validateEmail } from '../../assets/utils/inputCheck.utils';
+import config from '../../config/config';
 
 import './signIn.styles.css';
 
@@ -18,14 +19,54 @@ class SignInPage extends Component {
         this.state = {
             userId: '',
             userPassword: '',
-            inputEmpty: false
+            inputEmpty: false,
+            loaderVisible: false,
+            loginError: false
         }
     }
 
     onLoginHandle = (event) => {
         const { userId, userPassword } = this.state;
         if (userPassword && userPassword !== '' && validateEmail(userId)) {
-            this.props.login();
+            fetch(`${config.prod_server_api}/register-user/login`, {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'Access-Control-Allow-Origin': '*'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify({
+                    "details": {
+                        "email": `${userId}`,
+                        "password": `${userPassword}`
+                    }
+                })
+            }).then(response => response.json())
+            .then( data =>{
+              console.log(data)
+              if( data.status === 200 ){
+                
+                
+                this.setState({loaderVisible: false})
+    
+                localStorage.setItem('uijt', data.token);
+    
+                this.props.login(data.user);
+              }else{
+                
+              }
+              this.setState({ loaderVisible: false }) 
+              
+            })
+            .catch( err => { 
+                
+                console.log("Something Went wrong")
+                this.setState({ loaderVisible: false })  
+            })
         } else {
             this.setState({ inputEmpty: true })
         }
@@ -90,7 +131,7 @@ class SignInPage extends Component {
 }
 const mapDispatchToProps = dispatch => {
     return {
-      login: () => dispatch(login())
+      login: user => dispatch(login(user))
     }
   }
 

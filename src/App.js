@@ -13,6 +13,7 @@ import './App.css'
 import PageNotFound from "./pages/404page/404page.component";
 import EmailVerifierDashboard from "./pages/emailVerifierDashboard/emailVerifierDashboard.component";
 import FinderPageDashboard from "./pages/FinderPageDashboard/finderPageDashboard.component";
+import CheckYourMail from "./pages/checkyourmail-page/checkYourMailPage.component";
 
 function App({isLoggedIn}) {
   return (
@@ -62,6 +63,11 @@ function App({isLoggedIn}) {
           exact
           path="/finder"
           render={(props) => <FinderPageDashboard {...props} />} 
+        />
+        <Route
+          exact
+          path="/users/account-setup"
+          render={props => <CheckYourMail {...props} />}
         />
         <Route render={(props) => <PageNotFound {...props}/>}/>
       </Switch>

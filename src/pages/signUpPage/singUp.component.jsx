@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link , Redirect} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,7 +7,8 @@ import Alert from 'react-bootstrap/Alert';
 
 import SignHeader from '../../components/signHeader/signHeader.component';
 
-import { validateEmail } from '../../assets/utils/inputCheck.utils';
+import { validateEmail, isEmailBusiness } from '../../assets/utils/inputCheck.utils';
+import config from '../../config/config';
 
 import './signUp.styles.css';
 
@@ -21,15 +22,18 @@ class SignUpPage extends Component {
             userFirstName: '',
             userLastName: '',
             currentStep: 1,
-            inputEmpty: false
+            inputEmpty: false,
+            loaderVisible: false
         }
     }
+
+    
 
     onButtonClickHandle = (event) => {
         const { userId, userPassword, currentStep, userFirstName, userLastName } = this.state;
         switch (currentStep) {
             case 1:
-                if (validateEmail(userId)) {
+                if (validateEmail(userId) && isEmailBusiness(userId)) {
                     console.log('loggedIn')
                     this.setState({ currentStep: currentStep + 1 })
                 } else {
@@ -40,7 +44,46 @@ class SignUpPage extends Component {
 
             case 2:
                 if (userPassword !== '' && userFirstName !== '' && userLastName !== '') {
-                    console.log('created account')
+                    this.setState({loaderVisible: true})
+                    fetch(`${config.prod_server_api}/register-user/register`, {
+                        method: 'POST',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        redirect: 'follow',
+                        referrerPolicy: 'no-referrer',
+                        body: JSON.stringify({
+                            "details": {
+                                "email": `${userId}`,
+                                "firstname": `${userFirstName}`,
+                                "lastname": `${userLastName}`,
+                                "password": `${userPassword}`,
+                                "currentHost": `${config.current_host}`
+                            }
+                        })
+                    })
+                    .then(response => response.json())
+                    .then( (data) => {
+                      if(data.verificationStatus.status === 200){
+                        if( data.verificationStatus.isAlreadyCreated ){
+                         alert('user already created')
+                        }else{
+                          console.log("res recieved")
+                          return(
+                            <Redirect to='/users/account-setup' />  
+                          )
+                        }
+                      }
+                      this.setState({loaderVisible: false})
+                    })
+                    .catch( err => { 
+                        console.log("Something Went wrong")
+                        this.setState({loaderVisible: false}) 
+                    } 
+                    )
                 } else {
                     this.setState({ inputEmpty: true })
                     console.error("enter valid data in the fields")

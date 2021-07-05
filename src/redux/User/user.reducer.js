@@ -14,7 +14,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 
            return {
 
-             ...state, user: {firstName: 'Sundaram', lastName: 'Srivastava'}, isLoggedIn: true,
+             ...state, user: userActionTypes.LOGIN.payload, isLoggedIn: true,
 
            };
 
